@@ -3,9 +3,6 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     padding-bottom: 3rem;
     color: #5a5a5a;
 }
