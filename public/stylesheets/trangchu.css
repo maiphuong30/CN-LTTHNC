@@ -96,10 +96,7 @@ a{
     color: white;
 }
 a:hover{
-    color: deeppink;
-}
-#menu li:hover{
-    background: lightpink;
+    color: deeppink !important;
 }
 #menu {
     font-weight: bold;
