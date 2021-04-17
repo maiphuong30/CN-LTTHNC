@@ -3,7 +3,8 @@ var multer = require('multer');
 var router = express.Router();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/btlon', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://admin:admin@cluster0.b0yjk.mongodb.net/btlon',
+                {useNewUrlParser: true, useUnifiedTopology: true});
 //multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
