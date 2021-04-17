@@ -6,4 +6,4 @@ var schemaSp = new mongoose.Schema({
     Cost: Number
 });
 
-module.exports = mongoose.model("San pham", schemaSp);
+module.exports = mongoose.model("product", schemaSp);
