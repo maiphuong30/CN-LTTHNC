@@ -2,9 +2,6 @@ var express = require('express');
 var multer = require('multer');
 var router = express.Router();
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.b0yjk.mongodb.net/btlon',
-                {useNewUrlParser: true, useUnifiedTopology: true});
 //multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -28,7 +25,7 @@ var upload = multer({
 }).single("spImage");
 
 router.get('/', function (req, res) {
-    res.render('quanli', { title: "Quan li san pham" });
+    res.render('quanli', { title: "Quan li san pham"});
 });
 //Them
 var sp = require("../models/sanpham");
@@ -47,7 +44,8 @@ router.post('/add', function (req, res) {
             var sanpham = sp({
                 Name: req.body.tensp,
                 Image: req.file.filename,
-                Cost: req.body.txtgia
+                Cost: req.body.txtgia,
+                Mota: req.body.txtmota
             });
             sanpham.save(function (err) {
                 if (err) {
