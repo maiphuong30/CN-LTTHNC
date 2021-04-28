@@ -4,6 +4,7 @@ var schemaSp = new mongoose.Schema({
     Name: String,
     Image: String,
     Cost: Number,
+    Danhmuc: String,
     Mota: String
 });
 
