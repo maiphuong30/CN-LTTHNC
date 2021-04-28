@@ -8,15 +8,26 @@ router.get('/', function (req, res) {
             res.json(err);
         }
         else{
-            res.render('home', { title: "Trang chu", danhsach: data });
+            res.render('page/home', { title: "Trang chu", danhsach: data });
+        }
+    });
+});
+router.get('/search', function (req, res) {
+    var f = req.query.f;
+    sp.find({Name: f}, function(err, data){
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.render('page/home', { title: "Trang chu", danhsach: data });
         }
     });
 });
 router.get('/dangnhap', function (req, res) {
-    res.render('sign_in', { title: "Dang nhap" });
+    res.render('page/sign_in', { title: "Dang nhap" });
 });
 router.get('/dangki', function (req, res) {
-    res.render('dangki', { title: "Dang ki tai khoan" });
+    res.render('page/dangki', { title: "Dang ki tai khoan" });
 });
 
 module.exports = router;

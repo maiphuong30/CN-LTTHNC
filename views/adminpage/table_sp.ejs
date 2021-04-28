@@ -1,0 +1,24 @@
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Header</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% danhsach.forEach(function(sp){ %>
+            <tr>
+                <td>
+                    <%- sp.Name %>
+                </td>
+                <td><%- sp.Cost %></td>
+                <td>bla bla</td>
+                <td><i class="bi bi-pencil-square"  style="color:blue;"></i></td>
+                <td><i class="bi bi-trash" style="color: red;"></i></td>
+            </tr>
+            <% }); %>
+    </tbody>
+</table>
