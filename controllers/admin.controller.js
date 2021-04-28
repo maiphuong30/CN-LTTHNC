@@ -34,6 +34,7 @@ module.exports.savetodb = function (req, res) {
                 Name: req.body.tensp,
                 Image: req.file.filename,
                 Cost: req.body.txtgia,
+                Danhmuc: req.body.danhmuc,
                 Mota: req.body.txtmota
             });
             sanpham.save(function (err) {
