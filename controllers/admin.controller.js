@@ -78,4 +78,12 @@ module.exports.upd = function (req, res) {
         }
     });
 
+};
+module.exports.del = function (req, res) {
+    sp.deleteOne({_id: req.params.id}, function(err){
+        if (err) {
+            res.json(err);
+        }  
+    })
+    res.redirect('/admin/product');
 }

@@ -22,6 +22,7 @@ router.get('/add', function (req, res) {
     res.render('adminpage/add', { title: "Them san pham"});
 });
 router.post('/add', ctl.savetodb);
+//Sua
 router.get('/edit/:id', function (req, res) {
     sp.findById(req.params.id, function (err, data) {
         if (err) {
@@ -34,5 +35,6 @@ router.get('/edit/:id', function (req, res) {
     });
 });
 router.post('/edit/:id', ctl.upd);
-
+//Sua
+router.get('/delete/:id', ctl.del);
 module.exports = router;
