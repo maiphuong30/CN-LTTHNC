@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var ctl = require("../controllers/admin.controller");
+const sanpham = require('../models/sanpham');
 var sp = require("../models/sanpham");
 
 router.get('/', function (req, res) {
@@ -32,6 +33,6 @@ router.get('/edit/:id', function (req, res) {
         }
     });
 });
-router.post('/edit');
+router.post('/edit/:id', ctl.upd);
 
 module.exports = router;
