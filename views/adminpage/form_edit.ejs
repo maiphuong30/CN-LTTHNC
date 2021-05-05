@@ -1,4 +1,4 @@
-<form action="./edit" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+<form action="./<%- sanpham._id %>" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
     <div class="form-group">
         <input type="hidden" name="idP" value="<%- sanpham._id %>">
     </div>
@@ -35,6 +35,6 @@
         <textarea name="txtmota" id="txtmota" class="form-control" id="textarea"><%- sanpham.Mota %></textarea>
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-lg btn-primary" value="Add new"/>
+        <input type="submit" class="btn btn-lg btn-primary" value="Edit"/>
     </div>
 </form>

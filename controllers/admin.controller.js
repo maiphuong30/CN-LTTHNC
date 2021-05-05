@@ -1,5 +1,6 @@
 var multer = require('multer');
 var sp = require("../models/sanpham");
+
 //multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -43,8 +44,38 @@ module.exports.savetodb = function (req, res) {
                 } else {
                     res.json({ "kq": 1 })
                 }
-            });
+            })
+            .then(() => res.redirect('/admin/product'))
         }
 
     });
 };
+module.exports.upd = function (req, res) {
+    upload(req, res, function (err) {
+        if (!req.file) {
+            sp.updateOne({ _id: req.params.id }, {
+                Name: req.body.tensp,
+                Cost: req.body.txtgia,
+                Danhmuc: req.body.danhmuc,
+                Mota: req.body.txtmota
+            })
+                .then(() => res.redirect('/admin/product'))
+        } else {
+            if (err instanceof multer.MulterError) {
+                res.json({ "kq": 0, "errMsg": "A Multer error occurred when uploading." });
+            } else if (err) {
+                res.json({ "kq": 0, "errMsg": "An unknown error occurred when uploading." + err });
+            } else {
+                sp.updateOne({ _id: req.params.id }, {
+                    Name: req.body.tensp,
+                    Image: req.file.filename,
+                    Cost: req.body.txtgia,
+                    Danhmuc: req.body.danhmuc,
+                    Mota: req.body.txtmota
+                })
+                    .then(() => res.redirect('/admin/product'))
+            }
+        }
+    });
+
+}
