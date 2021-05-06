@@ -23,6 +23,9 @@ router.get('/search', function (req, res) {
         }
     });
 });
+router.get('/detail/:id', function (req, res) {
+    res.render('page/product_detail', { title: "Chi tiet san pham" });
+});
 router.get('/dangnhap', function (req, res) {
     res.render('page/sign_in', { title: "Dang nhap" });
 });

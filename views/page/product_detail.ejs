@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../layouts/head'); %>
+        <script type="text/javascript">
+            function chonsp() {
+                var gt = document.getElementById("lsmau").value;
+                document.getElementById("sp").src = gt;
+                var s = new String(gt);
+                //tach chuoi pathhinh; tinh trang 
+                var vt = s.indexOf(";");
+                var img = s.substring(0, vt);
+                var tt = s.substring(vt + 1, s.length);
+                document.getElementById("sp").src = img;
+                document.getElementById("tt").value = tt;
+            }
+        </script>
+</head>
+
+<body>
+    <header>
+        <%- include('header'); %>
+    </header>
+    <div class="container my-5">
+        <main role="main">
+            <section style="padding: 10px;">
+                <div style="padding-top:14px; color:deeppink">
+                    <h1>Tận tâm - Chu đáo - Chất lượng</h1>
+                    <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
+                </div>
+                <div class="col-xs-12">
+                    <form class="form-inline mt-2 mt-md-0" method="GET" action="/search">
+                        <div class="input-group mb-3">
+                            <input class="form-control mr-sm-2" name="f" id="f" type="search" size="90"
+                                placeholder="Bạn muốn mua gì?">
+
+                            <button class="btn btn-default" type="submit">
+                                <svg width="1.6em" height="1.6em" style="color:deeppink" viewBox="0 0 16 16"
+                                    class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <div class="album py-5 bg-light">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" id="sp" width="100" height="310" src="../images/sp1.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="tensp"><img width="70px" height="70px" src="../images/off50.png">Son Kem Tint
+                                    Joy Color Của Jlaya</h5>
+                                <h5><del>35000đ</del> 17000đ </h5>
+                                <form class="horizontal-form">
+                                    <div class="form-group">
+                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="Name">Màu
+                                            sắc</label>
+                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <select class="form-control" id="lsmau" onchange="chonsp()">
+                                                <option value="../images/sp1.jpg; ">Chọn...</option>
+                                                <option value="../images/sp1a.jpg;còn hàng">Đỏ tươi</option>
+                                                <option value="../images/sp1b.jpg;còn hàng">Đỏ bí ngô</option>
+                                                <option value="../images/sp1c.jpg;còn hàng">Cam tươi</option>
+                                                <option value="../images/sp1d.jpg;còn hàng">Đỏ rượu vang</option>
+                                                <option value="../images/sp1e.jpg;hết hàng">Đỏ sẫm</option>
+                                                <option value="../images/sp1f.jpg;hết hàng">Đỏ tím</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                            for="tinhtrang">Tình trạng</label>
+                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <input type="text" id="tt" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="soluong"
+                                            id="sl">Số lượng</label>
+                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <input type="number" name="" min="0" placeholder="0">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline-success mb-4 ml-3">
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Son tint Joy Color -chính hãng nội địa trung. Đầy đủ màu sắc, tươi
+                        sáng, hiệu quả trong việc làm sáng màu môi.</p>
+                </div>
+        </main>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <%- include('../layouts/footer'); %>
+        </footer>
+    </div>
+</body>
+
+</html>
