@@ -4,19 +4,6 @@
 
 <head>
     <%- include('../layouts/head'); %>
-        <script type="text/javascript">
-            function chonsp() {
-                var gt = document.getElementById("lsmau").value;
-                document.getElementById("sp").src = gt;
-                var s = new String(gt);
-                //tach chuoi pathhinh; tinh trang 
-                var vt = s.indexOf(";");
-                var img = s.substring(0, vt);
-                var tt = s.substring(vt + 1, s.length);
-                document.getElementById("sp").src = img;
-                document.getElementById("tt").value = tt;
-            }
-        </script>
 </head>
 
 <body>
@@ -59,24 +46,10 @@
                     <div class="col-md-6">
                         <div class="card mb-4 shadow-sm">
                             <div class="card-body">
-                                <h5 class="tensp"><img width="70px" height="70px" src="../images/off50.png">Son Kem Tint
-                                    Joy Color Của Jlaya</h5>
-                                <h5><del>35000đ</del> 17000đ </h5>
+                                <h5 class="tensp">ten san pham</h5>
+                                <h5>gia o day </h5>
                                 <form class="horizontal-form">
                                     <div class="form-group">
-                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="Name">Màu
-                                            sắc</label>
-                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                                            <select class="form-control" id="lsmau" onchange="chonsp()">
-                                                <option value="../images/sp1.jpg; ">Chọn...</option>
-                                                <option value="../images/sp1a.jpg;còn hàng">Đỏ tươi</option>
-                                                <option value="../images/sp1b.jpg;còn hàng">Đỏ bí ngô</option>
-                                                <option value="../images/sp1c.jpg;còn hàng">Cam tươi</option>
-                                                <option value="../images/sp1d.jpg;còn hàng">Đỏ rượu vang</option>
-                                                <option value="../images/sp1e.jpg;hết hàng">Đỏ sẫm</option>
-                                                <option value="../images/sp1f.jpg;hết hàng">Đỏ tím</option>
-                                            </select>
-                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3"
@@ -101,8 +74,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Son tint Joy Color -chính hãng nội địa trung. Đầy đủ màu sắc, tươi
-                        sáng, hiệu quả trong việc làm sáng màu môi.</p>
+                    <p class="card-text">mo ta o day bla bla bla</p>
                 </div>
         </main>
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
