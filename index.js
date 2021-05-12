@@ -15,12 +15,14 @@ app.use(express.static("public"));
 
 var home = require('./routes/pageRoute');
 var adRoute = require('./routes/qlProductRoute');
+var dmRoute = require('./routes/danhmucRoute');
 
 app.use('/', home);
 app.get('/admin', function (req, res) {
     res.render('adminpage/quanli', { title: "Quản lí" });
 });
 app.use('/admin/product/', adRoute);
+app.use('/admin/danhmuc/', dmRoute);
 
 app.listen(port, function () {
     console.log("Server listening on port " + port);
