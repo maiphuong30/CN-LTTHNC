@@ -11,14 +11,14 @@ router.get('/', function (req, res) {
             res.json(err);
         }
         else {
-            res.render('adminpage/qldanhmuc', { title: "Quan li san pham", danhsach: data });
+            res.render('adminpage/qlsanpham', { title: "Quan li san pham", page: "table_dm", danhsach: data });
         }
     });
 });
 //Them
 
 router.get('/add', function (req, res) {
-    res.render('adminpage/addDm', { title: "Them danh muc"});
+    res.render('adminpage/qlsanpham', { title: "Them danh muc", page: "addDm"});
 });
 router.post('/add', function (req, res) {
     var danhmuc = new dm({
@@ -41,7 +41,7 @@ router.get('/edit/:id', function (req, res) {
         }
         else {
             console.log(data)
-            res.render('adminpage/editDm', { title: "Sua danhmuc", danhmuc: data });
+            res.render('adminpage/qlsanpham', { title: "Sua danh muc",page: "editDm" ,danhmuc: data });
         }
     });
 });

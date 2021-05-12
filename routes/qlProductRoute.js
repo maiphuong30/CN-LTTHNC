@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 var ctl = require("../controllers/admin.controller");
-const sanpham = require('../models/sanpham');
 var sp = require("../models/sanpham");
 
 router.get('/', function (req, res) {
@@ -12,14 +11,14 @@ router.get('/', function (req, res) {
             res.json(err);
         }
         else {
-            res.render('adminpage/qlsanpham', { title: "Quan li san pham", danhsach: data });
+            res.render('adminpage/qlsanpham', { title: "Quan li san pham",page:"table_sp", danhsach: data });
         }
     });
 });
 //Them
 
 router.get('/add', function (req, res) {
-    res.render('adminpage/add', { title: "Them san pham"});
+    res.render('adminpage/qlsanpham', { title: "Them san pham",page:"form_add"});
 });
 router.post('/add', ctl.savetodb);
 //Sua
@@ -30,7 +29,7 @@ router.get('/edit/:id', function (req, res) {
         }
         else {
             console.log(data)
-            res.render('adminpage/edit', { title: "Sua san pham", form: "./edit", sanpham: data });
+            res.render('adminpage/qlsanpham', { title: "Sua san pham", page:"form_edit", sanpham: data });
         }
     });
 });

@@ -42,10 +42,9 @@ module.exports.savetodb = function (req, res) {
                 if (err) {
                     res.json({ "kq": 0, "errMsg": err });
                 } else {
-                    res.json({ "kq": 1 })
+                    res.redirect('/admin/product');
                 }
             })
-            .then(() => res.redirect('/admin/product'))
         }
 
     });
@@ -80,10 +79,10 @@ module.exports.upd = function (req, res) {
 
 };
 module.exports.del = function (req, res) {
-    sp.deleteOne({_id: req.params.id}, function(err){
+    sp.deleteOne({ _id: req.params.id }, function (err) {
         if (err) {
             res.json(err);
-        }  
+        }
     })
     res.redirect('/admin/product');
 }
