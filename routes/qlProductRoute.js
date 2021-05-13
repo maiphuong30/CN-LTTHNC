@@ -6,11 +6,18 @@ var ctl = require("../controllers/admin.controller");
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
 router.get('/', function (req, res) {
-    sp.find(function (err, data) {
-        if (err) {
+    var ds = dm.aggregate([{
+        $lookup: {
+            from: "products",
+            localField: "List",
+            foreignField: "_id",
+            as: "DSSP"
+        }
+    }], function(err, data){
+        if(err){
             res.json(err);
         }
-        else {
+        else{
             res.render('adminpage/quanly', { title: "Quan li san pham",page:"table_sp", danhsach: data });
         }
     });

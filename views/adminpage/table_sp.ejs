@@ -3,12 +3,14 @@
     </h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         
-        <a href="product/add"><button type="button" class="btn btn-sm btn-outline-secondary">
+        <a href="add"><button type="button" class="btn btn-sm btn-outline-secondary">
                 Add new
             </button></a>
     </div>
 </div>
-<div class="table-responsive">
+<% danhsach.forEach(function(dm){ %>
+<div class="table-responsive border-bottom">  
+    <h3 class="h3"><%- dm.Title %></h3> 
 <table class="table table-striped table-sm">
     <thead>
         <tr>
@@ -20,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-        <% danhsach.forEach(function(sp){ %>
+        <% dm.DSSP.forEach(function(sp){ %>
             <tr>
                 <td>
                     <%- sp.Name %>
@@ -35,3 +37,4 @@
     </tbody>
 </table>
 </div>
+<% }); %>
