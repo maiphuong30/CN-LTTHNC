@@ -11,9 +11,9 @@
                     Danh mục
                 </a>
                 <div class="dropdown-menu bg-dark">
-                    <a class="nav-link" href="#">Tour miền Bắc</a>
-                    <a class="nav-link" href="#">Tour miền Trung</a>
-                    <a class="nav-link" href="#">Tour miền Nam</a>
+                    <% danhmuc.forEach(function(dm){ %>
+                    <a class="nav-link" href="#"><%- dm.Title %></a>
+                    <% }); %>
                 </div>
             </li>
             <li class="nav-item text-nowrap active"><a class="nav-link" href="#">Beauty Tips</a></li>

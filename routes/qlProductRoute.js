@@ -11,14 +11,14 @@ router.get('/', function (req, res) {
             res.json(err);
         }
         else {
-            res.render('adminpage/qlsanpham', { title: "Quan li san pham",page:"table_sp", danhsach: data });
+            res.render('adminpage/quanly', { title: "Quan li san pham",page:"table_sp", danhsach: data });
         }
     });
 });
 //Them
 
 router.get('/add', function (req, res) {
-    res.render('adminpage/qlsanpham', { title: "Them san pham",page:"form_add"});
+    res.render('adminpage/quanly', { title: "Them san pham",page:"form_add"});
 });
 router.post('/add', ctl.savetodb);
 //Sua
@@ -29,7 +29,7 @@ router.get('/edit/:id', function (req, res) {
         }
         else {
             console.log(data)
-            res.render('adminpage/qlsanpham', { title: "Sua san pham", page:"form_edit", sanpham: data });
+            res.render('adminpage/quanly', { title: "Sua san pham", page:"form_edit", sanpham: data });
         }
     });
 });

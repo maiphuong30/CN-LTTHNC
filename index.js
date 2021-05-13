@@ -19,7 +19,7 @@ var dmRoute = require('./routes/danhmucRoute');
 
 app.use('/', home);
 app.get('/admin', function (req, res) {
-    res.render('adminpage/quanli', { title: "Quản lí" });
+    res.render('adminpage/quanly', { title: "Quản lí", page:"welcome" });
 });
 app.use('/admin/product/', adRoute);
 app.use('/admin/danhmuc/', dmRoute);
