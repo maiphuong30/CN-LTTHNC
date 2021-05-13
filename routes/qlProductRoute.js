@@ -4,7 +4,7 @@ var router = express.Router();
 
 var ctl = require("../controllers/admin.controller");
 var sp = require("../models/sanpham");
-
+var dm = require("../models/danhmuc");
 router.get('/', function (req, res) {
     sp.find(function (err, data) {
         if (err) {
@@ -18,7 +18,14 @@ router.get('/', function (req, res) {
 //Them
 
 router.get('/add', function (req, res) {
-    res.render('adminpage/quanly', { title: "Them san pham",page:"form_add"});
+    dm.find(function(err, data){
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.render('adminpage/quanly', { title: "Them san pham",page:"form_add", danhmuc: data});
+        }
+    });
 });
 router.post('/add', ctl.savetodb);
 //Sua

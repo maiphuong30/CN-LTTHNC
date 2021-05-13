@@ -1,6 +1,6 @@
 var multer = require('multer');
 var sp = require("../models/sanpham");
-
+var dm = require("../models/danhmuc");
 //multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -35,18 +35,24 @@ module.exports.savetodb = function (req, res) {
                 Name: req.body.tensp,
                 Image: req.file.filename,
                 Cost: req.body.txtgia,
-                Danhmuc: req.body.danhmuc,
                 Mota: req.body.txtmota
             });
             sanpham.save(function (err) {
                 if (err) {
                     res.json({ "kq": 0, "errMsg": err });
                 } else {
-                    res.redirect('/admin/product');
+                    dm.findByIdAndUpdate(req.body.danhmuc, {
+                        $push: { List: sanpham._id }
+                    }, function (err) {
+                        if (err) {
+                            res.json(err);
+                        } else {
+                            res.redirect('/admin/product');
+                        }
+                    });
                 }
             })
         }
-
     });
 };
 module.exports.upd = function (req, res) {
