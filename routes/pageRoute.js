@@ -30,8 +30,19 @@ router.get('/search', function (req, res) {
         }
     });
 });
-router.get('/detail/:id', function (req, res) {
-    res.render('page/product_detail', { title: "Chi tiet san pham" });
+
+//  Chi Tiet
+router.get('/page/:_id', function (req, res) {
+    sp.findById(req.params._id, function (err, data) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            
+            res.render('page/detail', { title: "Chi Tiet san pham",  sanpham: data });
+            console.log(data)
+        }
+    });
 });
 router.get('/dangnhap', function (req, res) {
     res.render('page/sign_in', { title: "Dang nhap" });
