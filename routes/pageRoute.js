@@ -52,6 +52,15 @@ router.get('/gioithieu', function (req, res) {
         }
     });
 });
+router.get('/beauty_tips', function (req, res) {
+    dm.find(function(err, data1){
+        if(err){
+            res.json(err);
+        }else{
+            res.render('page/home', { title: "Beauty tips",page:"beautytips", danhmuc: data1});
+        }
+    });
+});
 router.get('/dangnhap', function (req, res) {
     res.render('page/sign_in', { title: "Dang nhap" });
 });
