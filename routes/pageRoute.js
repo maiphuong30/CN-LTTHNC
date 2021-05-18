@@ -43,6 +43,15 @@ router.get('/detail/:_id', function (req, res) {
     });  
     
 });
+router.get('/gioithieu', function (req, res) {
+    dm.find(function(err, data1){
+        if(err){
+            res.json(err);
+        }else{
+            res.render('page/home', { title: "Gioi thieu",page:"gioithieu", danhmuc: data1});
+        }
+    });
+});
 router.get('/dangnhap', function (req, res) {
     res.render('page/sign_in', { title: "Dang nhap" });
 });
