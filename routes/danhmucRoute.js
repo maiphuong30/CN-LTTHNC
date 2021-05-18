@@ -29,7 +29,7 @@ router.post('/add', function (req, res) {
         if (err) {
             res.json({ "kq": 0, "errMsg": err });
         } else {
-            res.redirect('/admin/danhmuc');
+            res.redirect('/admin/danhmuc/');
         }
     })
 });
@@ -52,7 +52,7 @@ router.post('/edit/:id', function (req, res) {
         if(err){
             res.json({ "kq": 0, "errMsg": err });
         }else{
-            res.redirect('/admin/danhmuc');
+            res.redirect('/admin/danhmuc/');
         }
     });   
 });
@@ -62,6 +62,6 @@ router.get('/delete/:id',function (req, res) {
             res.json(err);
         }  
     })
-    res.redirect('/admin/danhmuc');
+    res.redirect('/admin/danhmuc/');
 });
 module.exports = router;

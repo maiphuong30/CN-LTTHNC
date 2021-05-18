@@ -2,23 +2,8 @@ var express = require('express');
 var router = express.Router();
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
-router.get('/', function (req, res) {
-    dm.find(function(err, data1){
-        if(err){
-            res.json(err);
-        }
-        else{
-            sp.find(function(err, data2){
-                if(err){
-                    res.json(err);
-                }
-                else{
-                    res.render('page/home', { title: "Trang chu", danhsach: data2, danhmuc: data1});
-                }
-            });
-        }
-    });  
-});
+var ctl = require("../controllers/page.controller")
+router.get('/', ctl.index);
 router.get('/search', function (req, res) {
     var f = req.query.f;
     sp.find({Name: f}, function(err, data){
@@ -26,23 +11,37 @@ router.get('/search', function (req, res) {
             res.json(err);
         }
         else{
-            res.render('page/home', { title: "Trang chu", danhsach: data });
+            dm.find(function(err, data1){
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    res.render('page/home', { title: "Trang chu",page:"listsp", danhsach: data, danhmuc: data1});
+                }
+            });
         }
     });
 });
 
 //  Chi Tiet
-router.get('/page/:_id', function (req, res) {
-    sp.findById(req.params._id, function (err, data) {
-        if (err) {
+router.get('/detail/:_id', function (req, res) {
+    dm.find(function(err, data1){
+        if(err){
             res.json(err);
         }
-        else {
-            
-            res.render('page/detail', { title: "Chi Tiet san pham",  sanpham: data });
-            console.log(data)
+        else{
+            sp.findById(req.params._id, function (err, data) {
+                if(err){
+                    res.json(err);
+                }
+                else {
+                    res.render('page/home', { title: "Chi Tiet san pham",page:"product_detail", sanpham: data,danhmuc: data1 });
+                    console.log(data)
+                }
+            });
         }
-    });
+    });  
+    
 });
 router.get('/dangnhap', function (req, res) {
     res.render('page/sign_in', { title: "Dang nhap" });

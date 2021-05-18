@@ -47,7 +47,7 @@ module.exports.savetodb = function (req, res) {
                         if (err) {
                             res.json(err);
                         } else {
-                            res.redirect('/admin/product');
+                            res.redirect('/admin/product/');
                         }
                     });
                 }
@@ -64,7 +64,7 @@ module.exports.upd = function (req, res) {
                 Danhmuc: req.body.danhmuc,
                 Mota: req.body.txtmota
             })
-                .then(() => res.redirect('/admin/product'))
+                .then(() => res.redirect('/admin/product/'))
         } else {
             if (err instanceof multer.MulterError) {
                 res.json({ "kq": 0, "errMsg": "A Multer error occurred when uploading." });
@@ -78,7 +78,7 @@ module.exports.upd = function (req, res) {
                     Danhmuc: req.body.danhmuc,
                     Mota: req.body.txtmota
                 })
-                    .then(() => res.redirect('/admin/product'))
+                    .then(() => res.redirect('/admin/product/'))
             }
         }
     });
@@ -90,5 +90,5 @@ module.exports.del = function (req, res) {
             res.json(err);
         }
     })
-    res.redirect('/admin/product');
+    res.redirect('/admin/product/');
 }
