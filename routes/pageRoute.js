@@ -3,25 +3,9 @@ var router = express.Router();
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
 var ctl = require("../controllers/page.controller")
+
 router.get('/', ctl.index);
-router.get('/search', function (req, res) {
-    var f = req.query.f;
-    sp.find({Name: f}, function(err, data){
-        if(err){
-            res.json(err);
-        }
-        else{
-            dm.find(function(err, data1){
-                if(err){
-                    res.json(err);
-                }
-                else{
-                    res.render('page/home', { title: "Trang chu",page:"listsp", danhsach: data, danhmuc: data1});
-                }
-            });
-        }
-    });
-});
+router.get('/search', ctl.search);
 
 //  Chi Tiet
 router.get('/detail/:_id', function (req, res) {
