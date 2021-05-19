@@ -9,20 +9,22 @@ mongoose.connect(url,
     .then((db)=> console.log("db is connected"))
     .catch((err) =>console.log(err));
 var app = express();
+var cookieParser = require('cookie-parser');
 app.set('view engine', 'ejs');
 app.set("views", "./views");
 app.use(express.static("public"));
-
+app.use(cookieParser());
 var home = require('./routes/pageRoute');
-var adRoute = require('./routes/qlProductRoute');
-var dmRoute = require('./routes/danhmucRoute');
-
+var adRoute = require('./routes/admin/qlProductRoute');
+var dmRoute = require('./routes/admin/danhmucRoute');
+var authRoute = require('./routes/authRoute');
+var adminRoute = require('./routes/adminRoute');
+var auth = require('./middleware/auth.middleware');
 app.use('/', home);
-app.get('/admin', function (req, res) {
-    res.render('adminpage/quanly', { title: "Quản lí", page:"welcome" });
-});
-app.use('/admin/product/', adRoute);
-app.use('/admin/danhmuc/', dmRoute);
+app.use('/admin/',auth.isAdminLoggedin ,adminRoute);
+app.use('/admin/product/',auth.isAdminLoggedin, adRoute);
+app.use('/admin/danhmuc/',auth.isAdminLoggedin, dmRoute);
+app.use('/login/', authRoute);
 
 app.listen(port, function () {
     console.log("Server listening on port " + port);

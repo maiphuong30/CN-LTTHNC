@@ -61,9 +61,9 @@ router.get('/beauty_tips', function (req, res) {
         }
     });
 });
-router.get('/dangnhap', function (req, res) {
-    res.render('page/sign_in', { title: "Dang nhap" });
-});
+/*router.get('/login', function (req, res) {
+    res.render('page/login', { title: "Dang nhap" });
+});*/
 router.get('/dangki', function (req, res) {
     res.render('page/dangki', { title: "Dang ki tai khoan" });
 });
