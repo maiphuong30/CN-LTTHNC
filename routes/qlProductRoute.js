@@ -42,8 +42,19 @@ router.get('/edit/:id', function (req, res) {
             res.json(err);
         }
         else {
-            console.log(data)
-            res.render('adminpage/quanly', { title: "Sua san pham", page:"form_edit", sanpham: data });
+            dm.find(function(err, data1){
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    console.log(data)
+                    res.render('adminpage/quanly', {
+                        title: "Sua san pham", page:"form_edit",
+                        sanpham: data,
+                        danhmuc: data1
+                    });
+                }
+            }); 
         }
     });
 });
