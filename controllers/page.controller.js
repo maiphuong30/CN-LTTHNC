@@ -1,7 +1,8 @@
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
+var perpage = 3;
+
 module.exports.index = function (req, res) {
-    var perpage = 3;
     var page = req.query.page || 1;
     var skip = (page - 1) * perpage;
     dm.find(function (err, data1) {
@@ -29,7 +30,6 @@ module.exports.index = function (req, res) {
 };
 module.exports.search = function (req, res) {
     var f = req.query.f;
-    var perpage = 3;
     var page = req.query.page || 1;
     var skip = (page - 1) * perpage;
     dm.find(function (err, data1) {
