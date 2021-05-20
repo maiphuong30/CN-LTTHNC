@@ -1,6 +1,6 @@
 module.exports.isAdminLoggedin = function (req, res,next) {
     if (!req.cookies.user) {
-        res.redirect('/login');
+        res.redirect('/adminlogin');
         return;
     }
     if(req.cookies.username){

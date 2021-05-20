@@ -24,7 +24,7 @@ app.use('/', home);
 app.use('/admin/',auth.isAdminLoggedin ,adminRoute);
 app.use('/admin/product/',auth.isAdminLoggedin, adRoute);
 app.use('/admin/danhmuc/',auth.isAdminLoggedin, dmRoute);
-app.use('/login/', authRoute);
+app.use('/adminlogin/', authRoute);
 
 app.listen(port, function () {
     console.log("Server listening on port " + port);
