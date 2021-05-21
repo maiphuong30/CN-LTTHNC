@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var multer = require('multer');
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
@@ -35,7 +36,8 @@ module.exports.savetodb = function (req, res) {
                 Name: req.body.tensp,
                 Image: req.file.filename,
                 Cost: req.body.txtgia,
-                Mota: req.body.txtmota
+                Mota: req.body.txtmota,
+                Category_id: mongoose.Types.ObjectId(req.body.danhmuc)
             });
             sanpham.save(function (err) {
                 if (err) {
@@ -61,8 +63,8 @@ module.exports.upd = function (req, res) {
             sp.updateOne({ _id: req.params.id }, {
                 Name: req.body.tensp,
                 Cost: req.body.txtgia,
-                Danhmuc: req.body.danhmuc,
-                Mota: req.body.txtmota
+                Mota: req.body.txtmota,
+                Category_id: mongoose.Types.ObjectId(req.body.danhmuc)
             })
                 .then(() => res.redirect('/admin/product/'))
         } else {
@@ -75,8 +77,8 @@ module.exports.upd = function (req, res) {
                     Name: req.body.tensp,
                     Image: req.file.filename,
                     Cost: req.body.txtgia,
-                    Danhmuc: req.body.danhmuc,
-                    Mota: req.body.txtmota
+                    Mota: req.body.txtmota,
+                    Category_id: mongoose.Types.ObjectId(req.body.danhmuc)
                 })
                     .then(() => res.redirect('/admin/product/'))
             }
