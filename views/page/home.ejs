@@ -10,19 +10,17 @@
     <header>
         <%- include('header'); %>
     </header>
-    <div class="container my-5">
-        <main role="main">
+    <div>
+        <%- include('carousel'); %>
+    </div>
+    <div >
+        <main role="main" class="container">
             <section style="padding: 10px;">
-                <div style="padding-top:14px; color:deeppink">
-                    <h1>Tận tâm - Chu đáo - Chất lượng</h1>
-                    <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
-                </div>
                 <div class="col-xs-12">
-                    <form class="form-inline mt-2 mt-md-0" method="GET" action="/search">
+                    <form id="search" class="form-inline mt-md-0" method="GET" action="/search">
                         <div class="input-group mb-3">
-                            <input class="form-control mr-sm-2" name="f" id="f" type="search" size="90" placeholder="Bạn muốn tìm gì?">
-
-                            <button class="btn btn-default" type="submit">
+                            <input class="form-control mr-sm-2 mt-5" name="f" id="f" type="search" size="90" placeholder="Bạn muốn tìm gì?">
+                            <button class="btn btn-default  mt-5" type="submit">
                                 <svg width="1.6em" height="1.6em" style="color:deeppink" viewBox="0 0 16 16"
                                     class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -35,8 +33,10 @@
                     </form>
                 </div>
             </section>
-            <%- include(page); %>
         </main>
+        <div>
+            <%- include(page); %>
+        </div>
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <%- include('../layouts/footer'); %>
         </footer>
