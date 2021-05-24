@@ -8,7 +8,9 @@
             </button></a>
     </div>
 </div>
+<% danhsach.forEach(function(dm){ %>
 <div class="table-responsive border-bottom">  
+    <h3 class="h3"><%- dm.Title %></h3> 
 <table class="table table-striped table-sm">
     <thead>
         <tr>
@@ -19,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        <% danhsach.forEach(function(sp){ %>
+        <% dm.DSSP.forEach(function(sp){ %>
             <tr>
                 <td>
                     <%- sp.Name %>
@@ -32,5 +34,5 @@
             <% }); %>
     </tbody>
 </table>
-<%- include('../page/phantrang'); %>
 </div>
+<% }); %>
