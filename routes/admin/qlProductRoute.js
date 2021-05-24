@@ -5,7 +5,7 @@ var router = express.Router();
 var ctl = require("../../controllers/admin.controller");
 var sp = require("../../models/sanpham");
 var dm = require("../../models/danhmuc");
-router.get('/', function (req, res) {
+/*router.get('/', function (req, res) {
     var ds = dm.aggregate([{
         $lookup: {
             from: "products",
@@ -21,7 +21,8 @@ router.get('/', function (req, res) {
             res.render('adminpage/quanly', { title: "Quan li san pham",page:"table_sp", danhsach: data });
         }
     });
-});
+});*/
+router.get('/',ctl.xuatsp);
 //Them
 
 router.get('/add', function (req, res) {
