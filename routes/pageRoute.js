@@ -6,7 +6,7 @@ var ctl = require("../controllers/page.controller")
 
 router.get('/', ctl.index);
 router.get('/search', ctl.search);
-router.get('/:id', ctl.xuattheoCat);
+router.get('/danhmuc/:id', ctl.xuattheoCat);
 //  Chi Tiet
 router.get('/detail/:_id', function (req, res) {
     dm.find(function(err, data1){

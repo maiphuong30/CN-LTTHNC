@@ -57,7 +57,7 @@ module.exports.search = function (req, res) {
     });
 };
 module.exports.xuattheoCat = function (req, res) {
-    var id = mongoose.Types.ObjectId(req.params.id);
+    var id = req.params.id;
     var page = req.query.page || 1;
     var skip = (page - 1) * perpage;
     dm.find(function (err, data1) {
@@ -66,20 +66,24 @@ module.exports.xuattheoCat = function (req, res) {
         }
         else {
             sp.find({Category_id: id}).skip(skip).limit(perpage).exec(function (err, data2) {
-                sp.countDocuments((err, count) => {
-                    if (err) {
-                        res.json(err);
-                    }
-                    else {
-                        console.log(data2);
-                        res.render('page/home', {
-                            title: "Trang chu", page: "listsp",
-                            current: page,
-                            pages: Math.ceil(count / perpage),
-                            danhsach: data2, danhmuc: data1
-                        });
-                    }
-                });
+                if (err) {
+                    res.json(err);
+                } else {
+                    sp.countDocuments((err, count) => {
+                        if (err) {
+                            res.json(err);
+                        }
+                        else {
+                            console.log(data2);
+                            res.render('page/home', {
+                                title: "Trang chu", page: "listsp",
+                                current: page,
+                                pages: Math.ceil(count / perpage),
+                                danhsach: data2, danhmuc: data1
+                            });
+                        }
+                    });
+                }
             });
         }
     });
