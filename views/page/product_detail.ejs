@@ -1,41 +1,137 @@
-<div class="album py-5 bg-light">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" id="sp" width="100" height="310" src="../images/<%- sanpham.Image %>" />
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="tensp"><%- sanpham.Name %></h5>
-                    <h5><%- sanpham.Cost %></h5>
-                    <form class="horizontal-form">
-                        <div class="form-group">
-                        </div>
-                        <div class="form-group">
-                            <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="tinhtrang">Tình
-                                trạng</label>
-                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                                <input type="text" id="tt" class="form-control" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="soluong" id="sl">Số
-                                lượng</label>
-                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                                <input type="number" name="" min="0" placeholder="0">
-                            </div>
-                        </div>
-                        <button class="btn btn-outline-success mb-4 ml-3">
-                            Thêm vào giỏ hàng
-                        </button>
-                    </form>
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include('../layouts/head'); %>
+</head>
+
+<body>
+    <header id="header" class="fixed-top head">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-11 d-flex align-items-center">
+                    <h1 class="logo mr-auto "><a class="navbar-brand " href="/">SAKURA</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li class="nav-item text-nowrap active"><a class="nav-link" href="/beauty_tips">Beauty Tips</a>
+                            </li>
+                            <li class="nav-item text-nowrap "><a class="nav-link" href="#">Ưu đãi</a></li>
+                            <li class="nav-item text-nowrap "><a class="nav-link" href="/gioithieu">Giới thiệu</a></li>
+                            <li class="nav-item text-nowrap dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                    Danh mục
+                                </a>
+                                <div class="dropdown-menu bg-dark">
+                                    <% danhmuc.forEach(function(dm){ %>
+                                        <a class="nav-link" href="/danhmuc/<%- dm._id %>">
+                                            <%- dm.Title %>
+                                        </a>
+                                        <% }); %>
+                                </div>
+                            </li>
+                            <li class="nav-item text-nowrap  dropdown text-end">
+                                <a class="nav-link dropdown " href="/admin" id="dropdown02" data-toggle="dropdown">
+                                    <i class="bi bi-person-circle"></i>
+                                    Tài khoản
+                                </a>
+                                <div class="dropdown-menu bg-dark" aria-labelledby="dropdown02">
+                                    <a class="nav-link" href="/login">Đăng nhập</a>
+                                    <a class="nav-link" href="/dangki">Đăng kí</a>
+                                    <br>
+                                    <a class="nav-link" href="/admin">Admin</a>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </nav><!-- .nav-menu -->
                 </div>
             </div>
+    
         </div>
-    </div>
-    <div class="card-body">
-        <p class="card-text"><%- sanpham.Mota %></p>
-    </div>
-</div>
+    </header><!-- End Header -->
+    <div class="form__search">
+        <main role="main" class="container">
+            <section style="padding: 10px;">
+                <div class="col-xs-12">
+                    <form id="search" class="form-inline mt-md-0" method="GET" action="/search">
+                        <div class="input-group mb-3">
+                            <input class="form-control mr-sm-2" name="f" id="f" type="search" size="90"
+                                placeholder="Bạn muốn tìm gì?">
+                            <button class="btn btn-default " type="submit">
+                                <svg width="1.6em" height="1.6em" style="color:deeppink" viewBox="0 0 16 16"
+                                    class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <div class="container">
+
+            <div class="album py-5 bg-light">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" id="sp" width="100" height="310"
+                                src="../images/<%- sanpham.Image %>" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="tensp">
+                                    <%- sanpham.Name %>
+                                </h5>
+                                <h5>
+                                    <%- sanpham.Cost %>
+                                </h5>
+                                <form class="horizontal-form">
+                                    <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                            for="tinhtrang">Tình
+                                            trạng</label>
+                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <input type="text" id="tt" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-xs-3 col-sm-3 col-md-3 col-lg-3" for="soluong"
+                                            id="sl">Số
+                                            lượng</label>
+                                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <input type="number" name="" min="0" placeholder="0">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline-success mb-4 ml-3">
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <%- sanpham.Mota %>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <%- include('../layouts/footer'); %>
+        </footer>
+</body>
+
+</html>

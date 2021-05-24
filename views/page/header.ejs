@@ -1,36 +1,53 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/">SAKURA</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item text-nowrap dropdown active">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    Danh mục
-                </a>
-                <div class="dropdown-menu bg-dark">
-                    <% danhmuc.forEach(function(dm){ %>
-                    <a class="nav-link" href="danhmuc/<%- dm._id %>"><%- dm.Title %></a>
-                    <% }); %>
-                </div>
-            </li>
-            <li class="nav-item text-nowrap active"><a class="nav-link" href="beauty_tips">Beauty Tips</a></li>
-            <li class="nav-item text-nowrap active"><a class="nav-link" href="#">Ưu đãi</a></li>
-            <li class="nav-item text-nowrap active"><a class="nav-link" href="gioithieu">Giới thiệu</a></li>
-        </ul>
-        <div class="nav-item dropdown text-end">
-            <a class="nav-link dropdown " href="#" id="dropdown02" data-toggle="dropdown">
-                <i class="bi bi-person-circle"></i>
-                Tài khoản
-            </a>
-            <div class="dropdown-menu bg-dark" aria-labelledby="dropdown02">
-                <a class="nav-link" href="/login">Đăng nhập</a>
-                <a class="nav-link" href="/dangki">Đăng kí</a>
-                <br>
-                <a class="nav-link" href="/admin">Admin</a>
+<header id="header" class="fixed-top">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-11 d-flex align-items-center">
+                <h1 class="logo mr-auto "><a class="navbar-brand " href="/">SAKURA</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li class="nav-item text-nowrap active"><a class="nav-link" href="beauty_tips">Beauty Tips</a>
+                        </li>
+                        <li class="nav-item text-nowrap "><a class="nav-link" href="#">Ưu đãi</a></li>
+                        <li class="nav-item text-nowrap "><a class="nav-link" href="gioithieu">Giới thiệu</a></li>
+                        <li class="nav-item text-nowrap dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Danh mục
+                            </a>
+                            <div class="dropdown-menu bg-dark">
+                                <% danhmuc.forEach(function(dm){ %>
+                                    <a class="nav-link" href="danhmuc/<%- dm._id %>">
+                                        <%- dm.Title %>
+                                    </a>
+                                    <% }); %>
+                            </div>
+                        </li>
+                        <li class="nav-item text-nowrap  dropdown text-end">
+                            <a class="nav-link dropdown " href="#" id="dropdown02" data-toggle="dropdown">
+                                <i class="bi bi-person-circle"></i>
+                                Tài khoản
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdown02">
+                                <a class="nav-link" href="/login">Đăng nhập</a>
+                                <a class="nav-link" href="/dangki">Đăng kí</a>
+                                <br>
+                                <a class="nav-link" href="/admin">Admin</a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </nav><!-- .nav-menu -->
             </div>
         </div>
+
     </div>
-</nav>
+</header><!-- End Header -->
+<section id="hero">
+    <div class="hero-container">
+      <h3>Welcome to <strong>Sakura</strong></h3>
+      <h1>We're Creative Agency</h1>
+      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
