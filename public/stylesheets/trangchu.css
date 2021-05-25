@@ -540,6 +540,8 @@ a:hover{
 .portfolio .portfolio-item {
   margin-bottom: 30px;
   overflow: hidden;
+  width: 400px;
+  height: 400px;
 }
 
 .portfolio .portfolio-item img {
