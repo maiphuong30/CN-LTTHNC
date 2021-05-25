@@ -19,12 +19,13 @@ router.get('/detail/:_id', function (req, res) {
                     res.json(err);
                 }
                 else {
-                    res.render('page/product_detail', { title: "Chi Tiet san pham",page:"product_detail", sanpham: data,danhmuc: data1 });
+                    res.render('page/home', { title: "Chi Tiet san pham",page:"product_detail", sanpham: data,danhmuc: data1 });
                     console.log(data)
                 }
             });
         }
     });  
+    
 });
 router.get('/gioithieu', function (req, res) {
     dm.find(function(err, data1){

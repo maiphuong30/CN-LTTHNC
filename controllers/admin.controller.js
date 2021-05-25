@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var multer = require('multer');
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
+
+var perpage = 10;
+
 //multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -43,15 +46,15 @@ module.exports.savetodb = function (req, res) {
                 if (err) {
                     res.json({ "kq": 0, "errMsg": err });
                 } else {
-                    dm.findByIdAndUpdate(req.body.danhmuc, {
+                    /*dm.findByIdAndUpdate(req.body.danhmuc, {
                         $push: { List: sanpham._id }
                     }, function (err) {
                         if (err) {
                             res.json(err);
-                        } else {
-                            res.redirect('/admin/product/');
-                        }
-                    });
+                        } else {*/
+                    res.redirect('/admin/product/');
+                    // }
+                    // });
                 }
             })
         }
@@ -93,4 +96,43 @@ module.exports.del = function (req, res) {
         }
     })
     res.redirect('/admin/product/');
-}
+};
+module.exports.xuatsp = function (req, res) {
+    var page = req.query.page || 1;
+    var skip = (page - 1) * perpage;
+    sp.find().skip(skip).limit(perpage).exec(function (err, data) {
+        sp.countDocuments((err, count) => {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.render('adminpage/quanly', {
+                    title: "Quan li san pham", page: "table_sp",
+                    current: page,
+                    pages: Math.ceil(count / perpage),
+                    danhsach: data
+                });
+            }
+        });
+    });
+};
+module.exports.search = function (req, res) {
+    var f = req.query.f;
+    var page = req.query.page || 1;
+    var skip = (page - 1) * perpage;
+    sp.find({ Name: { $regex: f } }).skip(skip).limit(perpage).exec(function (err, data2) {
+        sp.countDocuments((err, count) => {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.render('adminpage/quanly', {
+                    title: "Quan li san pham", page: "table_sp",
+                    current: page,
+                    pages: Math.ceil(count / perpage),
+                    danhsach: data2
+                });
+            }
+        });
+    });
+};
