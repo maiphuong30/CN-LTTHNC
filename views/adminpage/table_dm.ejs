@@ -14,7 +14,7 @@
         <tr>
             <th>Tên danh mục</th>
             <th>Giá</th>
-            <th>Header</th>
+            <th>Xem chi tiết</th>
             <th>Sửa</th>
             <th>Xóa</th>
         </tr>
@@ -26,7 +26,8 @@
                     <%- dm.Title %>
                 </td>
                 <td>bla bla</td>
-                <td>bla bla</td>
+                <td><a href="edit/<%- dm._id %>" style="color:blue;">
+                    Xem</i></a></td>
                 <td><a href="edit/<%- dm._id %>">
                     <i class="bi bi-pencil-square"  style="color:blue;"></i></a></td>
                 <td><a onclick="return confirm('Bạn có chắc chắn muốn xóa <%- dm.Title %>?')" href="delete/<%- dm._id %>"><i class="bi bi-trash" style="color: red;"></i></a></td>

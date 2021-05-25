@@ -26,6 +26,14 @@
                 font-style: italic;
             }
         </style>
+        <script>
+            function update_query_parameters(key, val) {
+                uri = window.location.href
+                    .replace(RegExp("([?&]"+key+"(?=[=&#]|$)[^#&]*|(?=#|$))"), "&"+key+"="+encodeURIComponent(val))
+                    .replace(/^([^?&]+)&/, "$1?");
+                return uri;
+                }
+        </script>
 </head>
 
 <body>
