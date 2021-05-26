@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <%- include('../layouts/head'); %>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
-    <header id="header" class="fixed-top head">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-xl-11 d-flex align-items-center">
-                    <h1 class="logo mr-auto "><a class="navbar-brand " href="/">SAKURA</a></h1>
-                    <!-- Uncomment below if you prefer to use an image logo -->
-                    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-                    <nav class="nav-menu d-none d-lg-block">
-                        <ul>
-                            <li class="nav-item text-nowrap active"><a class="nav-link" href="/beauty_tips">Beauty
-                                    Tips</a>
-                            </li>
-                            <li class="nav-item text-nowrap "><a class="nav-link" href="#">Ưu đãi</a></li>
-                            <li class="nav-item text-nowrap "><a class="nav-link" href="/gioithieu">Giới thiệu</a></li>
-                            <li class="nav-item text-nowrap dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                                    Danh mục
-                                </a>
-                                <div class="dropdown-menu bg-dark">
-                                    <% danhmuc.forEach(function(dm){ %>
-                                        <a class="nav-link" href="/danhmuc/<%- dm._id %>">
-                                            <%- dm.Title %>
-                                        </a>
-                                        <% }); %>
-                                </div>
-                            </li>
-                            <li class="nav-item text-nowrap  dropdown text-end">
-                                <a class="nav-link dropdown " href="/admin" id="dropdown02" data-toggle="dropdown">
-                                    <i class="bi bi-person-circle"></i>
-                                    Tài khoản
-                                </a>
-                                <div class="dropdown-menu bg-dark" aria-labelledby="dropdown02">
-                                    <a class="nav-link" href="/login">Đăng nhập</a>
-                                    <a class="nav-link" href="/dangki">Đăng kí</a>
-                                    <br>
-                                    <a class="nav-link" href="/admin">Admin</a>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </nav><!-- .nav-menu -->
-                </div>
-            </div>
-        </div>
-    </header><!-- End Header -->
-    
+  
         <div class="container">
             <div class="album py-5 bg-light">
                 <div class="row">
@@ -117,7 +60,3 @@
                 </div>
             </div>
         </div>
-
-</body>
-
-</html>

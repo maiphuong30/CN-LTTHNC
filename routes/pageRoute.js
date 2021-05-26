@@ -45,6 +45,7 @@ router.get('/beauty_tips', function (req, res) {
         }
     });
 });
+router.get('/beauty_tips/:beauty', ctl.beauty);
 router.get('/login', function (req, res) {
     res.render('page/login', { title: "Dang nhap" });
 });

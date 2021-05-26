@@ -38,7 +38,7 @@ module.exports.search = function (req, res) {
             res.json(err);
         }
         else {
-            sp.find({Name:{$regex: f}}).skip(skip).limit(perpage).exec(function (err, data2) {
+            sp.find({ Name: { $regex: f } }).skip(skip).limit(perpage).exec(function (err, data2) {
                 sp.countDocuments((err, count) => {
                     if (err) {
                         res.json(err);
@@ -65,7 +65,7 @@ module.exports.xuattheoCat = function (req, res) {
             res.json(err);
         }
         else {
-            sp.find({Category_id: id}).skip(skip).limit(perpage).exec(function (err, data2) {
+            sp.find({ Category_id: id }).skip(skip).limit(perpage).exec(function (err, data2) {
                 if (err) {
                     res.json(err);
                 } else {
@@ -84,6 +84,20 @@ module.exports.xuattheoCat = function (req, res) {
                         }
                     });
                 }
+            });
+        }
+    });
+};
+module.exports.beauty = function (req, res) {
+    console.log(req.params.beauty);
+    dm.find(function (err, data1) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.render('page/home', {
+                title: "Trang chu", page:req.params.beauty ,
+                danhmuc: data1
             });
         }
     });
