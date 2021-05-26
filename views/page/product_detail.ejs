@@ -55,12 +55,7 @@
             </div>
         </div>
     </header><!-- End Header -->
-    <div class="form__search">
-        <div class="col-4 footer-newsletter mb-4">
-            <form id="search" action="/search" method="GET" class="d-flex">
-                <input name="f" id="f" type="search"><input type="submit" value="Search">
-            </form>
-        </div>
+    
         <div class="container">
             <div class="album py-5 bg-light">
                 <div class="row">
@@ -108,25 +103,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        Mô tả: <%- sanpham.Mota %>
-                    </p>
-                </div>
+                
             </div>
 
         </div>
        
-        <div class="modal " style="margin-top:100px" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content ">
-                        <iframe  width="560" height="315" src="https://www.youtube.com/embed/4JpkM-YS3q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="modal " style="margin-top:100px; " id="myModal">
+            <div class="modal-dialog" >
+                <div class="modal-content">
+                    <div class="card-body"  >
+                        <pre><%- sanpham.Mota %></pre>
+                    </div>   
                 </div>
             </div>
         </div>
-        <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <%- include('../layouts/footer'); %>
-        </footer>
 
 </body>
 
