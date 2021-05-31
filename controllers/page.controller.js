@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var sp = require("../models/sanpham");
 var dm = require("../models/danhmuc");
-var perpage = 3;
+var perpage = 6;
 
 module.exports.index = function (req, res) {
     var page = req.query.page || 1;
