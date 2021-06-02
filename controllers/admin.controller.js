@@ -136,3 +136,22 @@ module.exports.search = function (req, res) {
         });
     });
 };
+module.exports.xuatsptheoCat = function (req, res) {
+    var page = req.query.page || 1;
+    var skip = (page - 1) * perpage;
+    sp.find({ Category_id: req.params.id_dm}).skip(skip).limit(perpage).exec(function (err, data) {
+        sp.countDocuments((err, count) => {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.render('adminpage/quanly', {
+                    title: "San pham", page: "table_sp",
+                    current: page,
+                    pages: Math.ceil(count / perpage),
+                    danhsach: data
+                });
+            }
+        });
+    });
+};

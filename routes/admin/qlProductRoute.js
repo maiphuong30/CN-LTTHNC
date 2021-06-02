@@ -63,4 +63,5 @@ router.post('/edit/:id', ctl.upd);
 //Sua
 router.get('/delete/:id', ctl.del);
 router.get('/search',ctl.search);
+router.get('/:id_dm',ctl.xuatsptheoCat);
 module.exports = router;
