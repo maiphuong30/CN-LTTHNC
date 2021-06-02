@@ -18,3 +18,7 @@ module.exports.postLogin = function (req, res) {
         }
     })
 }
+module.exports.logout_get = (req, res) => {
+    res.cookie('user', '', { maxAge: 1 });
+    res.redirect('/');
+}
